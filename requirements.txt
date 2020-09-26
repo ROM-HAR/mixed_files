@@ -1,0 +1,2 @@
+- src: https://github.com/ROM-HAR/mysql_db.git
+- src: https://github.com/ROM-HAR/django-web.git
