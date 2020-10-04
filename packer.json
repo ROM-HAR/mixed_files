@@ -32,5 +32,12 @@
        "galaxy_file": "./requirements.yml",
        "playbook_file": "./playbook.yml"
      }
+   ],
+  "post-processors": [
+     {
+        "type": "shell-local",
+        "script": "{{user `postscript`}}"
+     }
    ]
 }
+
