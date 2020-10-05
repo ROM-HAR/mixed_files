@@ -2,12 +2,12 @@
 - name: Using tasks
   hosts: 127.0.0.1
   connection: local
-  become: yes
+#  become: yes
  
   environment:
-     PYTHONPATH: "{{ lookup('env', 'PWD') }}/django/django/notejam"
+     PYTHONPATH: "{{ lookup('env', 'PWD') }}/../django/django/notejam"
   
   roles:
-  - mysql_db
-  - django-web
-  
+  - ../mysql_db
+  - ../django-web
+
