@@ -4,6 +4,8 @@ pipeline {
 
     environment{
         PACKER_POSTPROCESS = "get_ami.sh"
+        AWS_ACCESS_KEY_ID = "${env.AWS_ID_USR}"
+        AWS_SECRET_ACCESS_KEY = "${env.AWS_ID_PSW}"
     }
     stages {
          stage('Create AWS AMI for Notejam Service'){
