@@ -1,6 +1,6 @@
 #!groovy
 pipeline {
-    agent none
+    agent any
 
     environment{
         PACKER_POSTPROCESS = "get_ami.sh"
@@ -12,7 +12,7 @@ pipeline {
             agent any
             steps{
                 echo "Create AWS AMI using Packer"
-                sh "/usr/bin/packer build -var 'postscript=${PACKER_POSTPROCESS}' packer.json"
+                sh "/usr/bin/packer build -var 'postscript=${PACKER_POSTPROCESS}' -var 'aws_access_key=${AWS_ACCESS_KEY_ID}' -var 'aws_secret_key=${AWS_SECRET_ACCESS_KEY}' packer.json"
                   } 
           }   
     }
