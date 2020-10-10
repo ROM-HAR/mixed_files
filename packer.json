@@ -34,10 +34,12 @@
      }
    ],
   "post-processors": [
-     {
-        "type": "shell-local",
-        "script": "{{user `postscript`}}"
-     }
-   ]
+    {
+      "type": "manifest",
+      "output": "manifest.json",
+      "strip_path": true
+    }
+  ]
+
 }
 
