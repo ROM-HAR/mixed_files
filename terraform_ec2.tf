@@ -60,7 +60,7 @@ resource "aws_security_group" "ubuntu" {
 
 resource "aws_instance" "ubuntu" {
   key_name      = aws_key_pair.ubuntu.key_name
-  ami           = "ami-03133a0b09d6284fb"
+  ami           = "${lookup(var.ami_id}"
   instance_type = "t2.micro"
 
   tags = {
