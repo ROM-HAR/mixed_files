@@ -7,6 +7,12 @@ pipeline {
         ANSIBLE_PLAYBOOK = "./playbook.yml"
     }
     stages {
+        stage('Git Checkout'){
+            steps{
+                git credentialsId: 'RH', url: 'https://github.com/ROM-HAR/mixed_files'     
+            }
+        }
+	    
         stage('Create AWS AMI for Notejam Service'){
             steps{
 		withAWS(credentials: 'AWS_ID'){    
