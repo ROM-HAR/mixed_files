@@ -5,7 +5,7 @@
 #  become: yes
  
   environment:
-     PYTHONPATH: "{{ lookup('env', 'PWD') }}/django/django/notejam"
+     PYTHONPATH: "/opt/django/django/notejam"
   
   roles:
   - mysql_db
