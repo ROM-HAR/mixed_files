@@ -1,3 +1,7 @@
+variable "ami_id" {
+  type = string
+}
+
 provider "aws" {
   access_key = ""
   secret_key = ""
