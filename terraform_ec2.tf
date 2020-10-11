@@ -1,5 +1,6 @@
 variable "ami_id" {
   type = string
+  default = "${var.ami_id}"
 }
 
 provider "aws" {
