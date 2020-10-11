@@ -21,9 +21,10 @@ pipeline {
                 sh "packer validate  -var 'playbook=${ANSIBLE_PLAYBOOK}'  packer.json"
                 sh "packer build  -var 'playbook=${ANSIBLE_PLAYBOOK}'  packer.json"
                 sh "cat manifest.json | jq .builds[0].artifact_id | tr -d '\"' | cut -b 11- > .ami"  
-                script {
-			AMI_ID = readFile('.ami').trim()
-		}
+		sh 'export AMI_ID=$(cat .ami | tr -d \'[:space:]\')'	
+                //script {
+			//AMI_ID = readFile('.ami').trim()
+		//}
 		}
             }
         }     
