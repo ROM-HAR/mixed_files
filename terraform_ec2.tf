@@ -64,7 +64,7 @@ resource "aws_security_group" "ubuntu" {
 
 resource "aws_instance" "ubuntu" {
   key_name      = aws_key_pair.ubuntu.key_name
-  image_id           = var.ami_id
+  ami           = var.ami_id
   instance_type = "t2.micro"
 
   tags = {
