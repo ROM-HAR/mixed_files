@@ -33,7 +33,7 @@ pipeline {
 		withAWS(credentials: 'AWS_ID'){    
 		sh "terraform init"
 		sh "terraform plan -var 'ami_id=${AMI_ID}' terraform_ec2.tf"
-		sh "terraform apply -var 'ami_id=${AMI_ID}' terraform_ec2.tf"
+		sh "terraform apply -var 'ami_id=${AMI_ID}' "
 		}		
 	    }
 	}
