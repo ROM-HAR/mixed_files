@@ -1,0 +1,29 @@
+version: '3'
+services:
+  db:
+    image: mysql:5.7
+    restart: always
+    environment:
+      - MYSQL_HOST=localhost
+      - MYSQL_PORT=3306
+      - MYSQL_DATABASE=django_db
+      - MYSQL_USER=db_user
+      - MYSQL_PASSWORD=PasswOrd
+      - MYSQL_ROOT_PASSWORD=root
+    ports:
+      - "3306:3306"
+    volumes:
+      - "./db:/var/lib/mysql"
+    networks:
+      - net
+  web:
+    build: 
+      context: /home/davit/dog
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    networks:
+      - net
+networks:
+  net:
